@@ -23,3 +23,50 @@ app.get("/user/:id", (request, response) => {
 The res object is an enhanced version of Node’s own response object and supports all built-in fields and methods.
 
 ## Properties
+
+### res.json([body])
+
+Sends a JSON response. This method sends a response (with the correct content-type) that is the parameter converted to a JSON string using JSON.stringify().
+
+The parameter can be any JSON type, including object, array, string, Boolean, number, or null, and you can also use it to convert other values to JSON.
+
+```js filename="app.js" copy
+res.json(null);
+res.json({ user: "tobi" });
+res.status(500).json({ error: "message" });
+```
+
+### res.send([body])
+
+Sends the HTTP response.
+
+The body parameter can be a Buffer object, a String, an object, Boolean, or an Array. For example:
+
+```js filename="app.js" copy
+res.send(Buffer.from("whoop"));
+res.send({ some: "json" });
+res.send("<p>some html</p>");
+res.status(404).send("Sorry, we cannot find that!");
+res.status(500).send({ error: "something blew up" });
+```
+
+When the parameter is a String, the method sets the Content-Type to “text/html”:
+
+```js filename="app.js" copy
+res.send("<p>some html</p>");
+```
+
+When the parameter is an Array or Object, Minimal responds with the JSON representation:
+
+```js filename="app.js" copy
+res.send({ user: "tobi" });
+res.send([1, 2, 3]);
+```
+
+### res.status(code)
+
+Sets the HTTP status for the response. It is a chainable alias of Node’s response.statusCode.
+
+```js filename="app.js" copy
+res.status(400).send("Bad Request");
+```

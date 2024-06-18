@@ -15,4 +15,217 @@ app.listen(3000);
 
 The app object has methods for Routing HTTP requests; see for example, app.METHOD
 
-## Properties
+## Methods
+
+### app.delete(path, query((req)=> mongooseQuery))
+
+Routes HTTP DELETE requests to the specified path with Mongoose Query to execute.
+
+#### Argument
+
+| Argument | Description                                                                                                                                                                                                                                     | Default         |
+| :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- |
+| path     | The path for which the middleware function is invoked; can be any of: A string representing a path. A path pattern. A regular expression pattern to match paths. An array of combinations of any of the above. For examples, see Path examples. | '/' (root path) |
+| query    | query functions; can be passed: any Mongoose Query. Checks for Mongoose Query if Mongoose Query execute it else returns error. For examples, see Middleware callback function examples.                                                         | None            |
+
+#### Example
+
+```js filename="app.js" copy
+app.delete(
+  "/deleteUser/:id",
+  query((req) => User.findByIdAndDelete(req.params.id))
+);
+```
+
+### app.delete(path, callback [, callback ...])
+
+Routes HTTP DELETE requests to the specified path with the specified callback functions.
+
+#### Arguments
+
+| Argument | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Default         |
+| :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- |
+| path     | The path for which the middleware function is invoked; can be any of: A string representing a path. A path pattern. A regular expression pattern to match paths. An array of combinations of any of the above. For examples, see Path examples.                                                                                                                                                                                                                                                                                                                                                                                                                 | '/' (root path) |
+| callback | Callback functions; can be: A middleware function. A series of middleware functions (separated by commas). An array of middleware functions. A combination of all of the above. You can provide multiple callback functions that behave just like middleware, except that these callbacks can invoke next('route') to bypass the remaining route callback(s). When a callback function throws an error or returns a rejected promise, `next(err)` will be invoked automatically. Since router and app implement the middleware interface, you can use them as you would any other middleware function. For examples, see Middleware callback function examples. | None            |
+
+#### Example
+
+```js filename="app.js" copy
+app.delete("/", (req, res) => {
+  res.send("DELETE request to homepage");
+});
+```
+
+### app.get(path, query((req)=> mongooseQuery))
+
+Routes HTTP GET requests to the specified path with Mongoose Query to execute.
+
+#### Argument
+
+| Argument | Description                                                                                                                                                                                                                                     | Default         |
+| :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- |
+| path     | The path for which the middleware function is invoked; can be any of: A string representing a path. A path pattern. A regular expression pattern to match paths. An array of combinations of any of the above. For examples, see Path examples. | '/' (root path) |
+| query    | query functions; can be passed: any Mongoose Query. Checks for Mongoose Query if Mongoose Query execute it else returns error. For examples, see Middleware callback function examples.                                                         | None            |
+
+#### Example
+
+```js filename="app.js" copy
+app.get(
+  "/",
+  query(() => User.find())
+);
+```
+
+If there is no any object used from req object in query, Query can be passed dirctly without query() function
+
+```js filename="app.js" copy
+app.get("/", User.find());
+```
+
+### app.get(path, callback [, callback ...])
+
+Routes HTTP GET requests to the specified path with the specified callback functions.
+
+#### Argument
+
+| Argument | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Default         |
+| :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- |
+| path     | The path for which the middleware function is invoked; can be any of: A string representing a path. A path pattern. A regular expression pattern to match paths. An array of combinations of any of the above. For examples, see Path examples.                                                                                                                                                                                                                                                                                                                                                                                                                 | '/' (root path) |
+| callback | Callback functions; can be: A middleware function. A series of middleware functions (separated by commas). An array of middleware functions. A combination of all of the above. You can provide multiple callback functions that behave just like middleware, except that these callbacks can invoke next('route') to bypass the remaining route callback(s). When a callback function throws an error or returns a rejected promise, `next(err)` will be invoked automatically. Since router and app implement the middleware interface, you can use them as you would any other middleware function. For examples, see Middleware callback function examples. | None            |
+
+#### Example
+
+```js filename="app.js" copy
+app.get("/", (req, res) => {
+  res.send("GET request to homepage");
+});
+```
+
+### app.listen([port[, host[, backlog]]][, callback])
+
+Binds and listens for connections on the specified host and port. This method is identical to Node’s http.Server.listen().
+
+If port is omitted or is 0, the operating system will assign an arbitrary unused port, which is useful for cases like automated tasks (tests, etc.).
+
+```js filename="app.js" copy
+const minimal = require("minimal");
+const app = minimal();
+app.listen(3000);
+```
+
+```js filename="app.js" copy
+const minimal = require("minimal");
+const app = minimal();
+app.listen(3000, () => console.log("server is running on port 3000"));
+```
+
+### app.post(path, query((req)=> mongooseQuery))
+
+Routes HTTP POST requests to the specified path with Mongoose Query to execute.
+
+#### Argument
+
+| Argument | Description                                                                                                                                                                                                                                     | Default         |
+| :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- |
+| path     | The path for which the middleware function is invoked; can be any of: A string representing a path. A path pattern. A regular expression pattern to match paths. An array of combinations of any of the above. For examples, see Path examples. | '/' (root path) |
+| query    | query functions; can be passed: any Mongoose Query. Checks for Mongoose Query if Mongoose Query execute it else returns error. For examples, see Middleware callback function examples.                                                         | None            |
+
+#### Example
+
+```js filename="app.js" copy
+app.post(
+  "/",
+  query((req) =>
+    User.create({
+      name: req.body.name,
+      age: req.body.age,
+      email: req.body.email,
+    })
+  )
+);
+```
+
+### app.post(path, callback [, callback ...])
+
+Routes HTTP POST requests to the specified path with the specified callback functions
+
+#### Arguments
+
+| Argument | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Default         |
+| :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- |
+| path     | The path for which the middleware function is invoked; can be any of: A string representing a path. A path pattern. A regular expression pattern to match paths. An array of combinations of any of the above. For examples, see Path examples.                                                                                                                                                                                                                                                                                                                                                                                                                 | '/' (root path) |
+| callback | Callback functions; can be: A middleware function. A series of middleware functions (separated by commas). An array of middleware functions. A combination of all of the above. You can provide multiple callback functions that behave just like middleware, except that these callbacks can invoke next('route') to bypass the remaining route callback(s). When a callback function throws an error or returns a rejected promise, `next(err)` will be invoked automatically. Since router and app implement the middleware interface, you can use them as you would any other middleware function. For examples, see Middleware callback function examples. | None            |
+
+#### Example
+
+```js filename="app.js" copy
+app.post("/", (req, res) => {
+  res.send("POST request to homepage");
+});
+```
+
+### app.put(path, query((req)=> mongooseQuery))
+
+Routes HTTP PUT requests to the specified path with Mongoose Query to execute.
+
+#### Argument
+
+| Argument | Description                                                                                                                                                                                                                                     | Default         |
+| :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- |
+| path     | The path for which the middleware function is invoked; can be any of: A string representing a path. A path pattern. A regular expression pattern to match paths. An array of combinations of any of the above. For examples, see Path examples. | '/' (root path) |
+| query    | query functions; can be passed: any Mongoose Query. Checks for Mongoose Query if Mongoose Query execute it else returns error. For examples, see Middleware callback function examples.                                                         | None            |
+
+#### Example
+
+```js filename="app.js" copy
+app.put(
+  "/",
+  query((req) => User.find(req.body.name).where("age").gt(req.body.age))
+);
+```
+
+### app.put(path, callback [, callback ...])
+
+Routes HTTP PUT requests to the specified path with the specified callback functions.
+
+#### Arguments
+
+| Argument | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Default         |
+| :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- |
+| path     | The path for which the middleware function is invoked; can be any of: A string representing a path. A path pattern. A regular expression pattern to match paths. An array of combinations of any of the above. For examples, see Path examples.                                                                                                                                                                                                                                                                                                                                                                                                                 | '/' (root path) |
+| callback | Callback functions; can be: A middleware function. A series of middleware functions (separated by commas). An array of middleware functions. A combination of all of the above. You can provide multiple callback functions that behave just like middleware, except that these callbacks can invoke next('route') to bypass the remaining route callback(s). When a callback function throws an error or returns a rejected promise, `next(err)` will be invoked automatically. Since router and app implement the middleware interface, you can use them as you would any other middleware function. For examples, see Middleware callback function examples. | None            |
+
+#### Example
+
+```js filename="app.js" copy
+app.put("/", (req, res) => {
+  res.send("PUT request to homepage");
+});
+```
+
+### app.use([path,] callback [, callback...])
+
+Mounts the specified middleware function or functions at the specified path: the middleware function is executed when the base of the requested path matches path.
+
+#### Example
+
+```js filename="app.js" copy
+app.use((req, res, next) => {
+  console.log("Time is: %d", Date.now());
+  next();
+});
+```
+
+Middleware functions are executed sequentially, therefore the order of middleware inclusion is important.
+
+```js filename="app.js" copy
+// this middleware will not allow the request to go beyond it
+app.use((req, res, next) => {
+  res.send("Hello World");
+});
+
+// requests will never reach this route
+app.get("/", (req, res) => {
+  res.send("Welcome");
+});
+```
