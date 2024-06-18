@@ -6,7 +6,7 @@ const config: DocsThemeConfig = {
   project: {
     link: "https://github.com/devbhi/minimal",
   },
-  docsRepositoryBase: "https://github.com/shuding/nextra-docs-template",
+  // docsRepositoryBase: "https://github.com/shuding/nextra-docs-template",
   footer: {
     text: "Developed by abhishek nale 🖐🏼",
   },
