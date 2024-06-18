@@ -1,15 +1,14 @@
 {
   "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
+  "GettingStarted": "Getting Started",
+  "minimal": "minimal()",
+  "application": "Application",
+  "request": "Request",
+  "response": "Response",
   "contact": {
     "title": "Contact ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://www.linkedin.com/in/abhishek-nale1709/",
     "newWindow": true
   }
 }

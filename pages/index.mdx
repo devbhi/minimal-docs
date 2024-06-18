@@ -1,11 +1,97 @@
-# Introduction
- 
-Welcome to Nextra! This is a basic docs template. You can use it as a starting point for your own project :)
+export const Hero = () => {
+  return (
+    <>
+      <div>
+        <p style={{ fontSize: "5rem", color: "black", padding: "3rem 0" }}>
+          Minimal
+        </p>
+      </div>
+      <div>
+        <p style={{ fontSize: "2.5rem", color: "black" }}>
+          The Minimalist Web Framework for Node.js
+        </p>
+        <p style={{ fontSize: "2.2rem", padding: "0 0 1rem 0" }}>
+          Fast, unopinionated, and flexible.
+        </p>
+      </div>
+      <div>
+        <p style={{ fontSize: "1.1rem" }}>
+          Minimal is a minimal and flexible Node.js web application framework
+          that provides a robust set of features for building single and
+          multi-page, and hybrid web applications. It is inspired by the
+          simplicity and efficiency of Express.js, with added capabilities for
+          seamless integration with Mongoose for MongoDB operations.
+        </p>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+          gap: "3rem",
+          margin: "2rem 0",
+        }}
+      >
+        <div>
+          <p style={{ fontSize: "1.2rem", color: "black", fontWeight: "600" }}>
+            Web Applications
+          </p>
+          <p>
+            Minimal is a minimal and flexible Node.js web application framework
+            that provides a robust set of features for web and mobile
+            applications.
+          </p>
+        </div>
+        <div>
+          <p style={{ fontSize: "1.2rem", color: "black", fontWeight: "600" }}>
+            Mongoose Support
+          </p>
+          <p>
+            Minimal provides added capabilities for seamless integration and use
+            of Mongoose for MongoDB operations without writing extra code.
+          </p>
+        </div>
+        <div>
+          <p style={{ fontSize: "1.2rem", color: "black", fontWeight: "600" }}>
+            APIs
+          </p>
+          <p>
+            With a myriad of HTTP utility methods and middleware at your
+            disposal, creating a robust API is quick and easy.
+          </p>
+        </div>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "left",
+          gap: "3rem",
+          width: "70%",
+        }}
+      >
+        <div>
+          <p style={{ fontSize: "1.2rem", color: "black", fontWeight: "600" }}>
+            Performance
+          </p>
+          <p>
+            Minimal provides a thin layer of fundamental web application
+            features, without obscuring Node.js features that you know and love.
+          </p>
+        </div>
+        <div>
+          <p style={{ fontSize: "1.2rem", color: "black", fontWeight: "600" }}>
+            Middleware
+          </p>
+          <p>
+            Minimal is a lightweight and flexible routing framework with minimal
+            core features meant to be augmented through the use of Minimal
+            middleware modules.
+          </p>
+        </div>
+      </div>
+    </>
+  );
+};
 
-## What is Nextra?
-
-A **simple**, **powerful** and **flexible** site generation framework with everything you love from Next.js.
-
-## Documentation
-
-The documentation is available at [https://nextra.site](https://nextra.site).
+<Hero />

@@ -1,0 +1,18 @@
+# Application
+
+The app object conventionally denotes the Minimal application. Create it by calling the top-level minimal() function exported by the minimal module:
+
+```js filename="app.js" {2} copy
+const minimal = require("minimal");
+const app = minimal();
+
+app.get("/", (req, res) => {
+  res.send("hello world");
+});
+
+app.listen(3000);
+```
+
+The app object has methods for Routing HTTP requests; see for example, app.METHOD
+
+## Properties
