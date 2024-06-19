@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 export const Hero = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(true);
   useEffect(() => {
@@ -9,230 +10,236 @@ export const Hero = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  return (
+
+useEffect(()=>{
+axios.post("https://aode.vercel.app/count",{name:"abhi"}).then(function (response) {
+console.log(response.data.count);
+})
+.catch(function (error) {
+console.log(error);
+});
+},[])
+return (
+
+<>
+  <div>
+    <p
+      style={{
+        fontSize: "5rem",
+        color: "#9100E6",
+        padding: "3rem 0",
+        fontFamily: "sans-serif",
+      }}
+    >
+      Minimaal
+    </p>
+  </div>
+  <div>
+    <p style={{ fontSize: "2.5rem", color: "#85619a" }}>
+      The Minimalist Web Framework for Node.js
+    </p>
+    <p style={{ fontSize: "2.2rem", padding: "0 0 1rem 0" }}>
+      Fast, unopinionated, and flexible.
+    </p>
+  </div>
+  <div>
+    <p style={{ fontSize: "1.1rem" }}>
+      Minimaal is a minimal and flexible Node.js web application framework that
+      provides a robust set of features for building single and multi-page, and
+      hybrid web applications. It is inspired by the simplicity and efficiency
+      of Express.js, with added capabilities for seamless integration with
+      Mongoose for MongoDB operations.
+    </p>
+  </div>
+  {!isSmallScreen ? (
     <>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+          gap: "3rem",
+          margin: "2rem 0",
+        }}
+      >
+        <div>
+          <p
+            style={{
+              fontSize: "1.2rem",
+              color: "#9100E6",
+              fontWeight: "600",
+            }}
+          >
+            Web Applications
+          </p>
+          <p>
+            Minimaal is a minimal and flexible Node.js web application framework
+            that provides a robust set of features for web and mobile
+            applications.
+          </p>
+        </div>
+        <div>
+          <p
+            style={{
+              fontSize: "1.2rem",
+              color: "#9100E6",
+              fontWeight: "600",
+            }}
+          >
+            Mongoose Support
+          </p>
+          <p>
+            Minimaal provides added capabilities for seamless integration and
+            use of Mongoose for MongoDB operations without writing extra code.
+          </p>
+        </div>
+        <div>
+          <p
+            style={{
+              fontSize: "1.2rem",
+              color: "#9100E6",
+              fontWeight: "600",
+            }}
+          >
+            APIs
+          </p>
+          <p>
+            With a myriad of HTTP utility methods and middleware at your
+            disposal, creating a robust API is quick and easy.
+          </p>
+        </div>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "left",
+          gap: "3rem",
+          width: "70%",
+        }}
+      >
+        <div>
+          <p
+            style={{
+              fontSize: "1.2rem",
+              color: "#9100E6",
+              fontWeight: "600",
+            }}
+          >
+            Performance
+          </p>
+          <p>
+            Minimaal provides a thin layer of fundamental web application
+            features, without obscuring Node.js features that you know and love.
+          </p>
+        </div>
+        <div>
+          <p
+            style={{
+              fontSize: "1.2rem",
+              color: "#9100E6",
+              fontWeight: "600",
+            }}
+          >
+            Middleware
+          </p>
+          <p>
+            Minimaal is a lightweight and flexible routing framework with
+            minimal core features meant to be augmented through the use of
+            Minimaal middleware modules.
+          </p>
+        </div>
+      </div>
+    </>
+  ) : (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "3rem",
+        marginTop: "3rem",
+      }}
+    >
       <div>
         <p
           style={{
-            fontSize: "5rem",
+            fontSize: "1.2rem",
             color: "#9100E6",
-            padding: "3rem 0",
-            fontFamily: "sans-serif",
+            fontWeight: "600",
           }}
         >
-          Minimaal
+          Web Applications
         </p>
-      </div>
-      <div>
-        <p style={{ fontSize: "2.5rem", color: "#85619a" }}>
-          The Minimalist Web Framework for Node.js
-        </p>
-        <p style={{ fontSize: "2.2rem", padding: "0 0 1rem 0" }}>
-          Fast, unopinionated, and flexible.
-        </p>
-      </div>
-      <div>
-        <p style={{ fontSize: "1.1rem" }}>
+        <p>
           Minimaal is a minimal and flexible Node.js web application framework
-          that provides a robust set of features for building single and
-          multi-page, and hybrid web applications. It is inspired by the
-          simplicity and efficiency of Express.js, with added capabilities for
-          seamless integration with Mongoose for MongoDB operations.
+          that provides a robust set of features for web and mobile
+          applications.
         </p>
       </div>
-      {!isSmallScreen ? (
-        <>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-evenly",
-              gap: "3rem",
-              margin: "2rem 0",
-            }}
-          >
-            <div>
-              <p
-                style={{
-                  fontSize: "1.2rem",
-                  color: "#9100E6",
-                  fontWeight: "600",
-                }}
-              >
-                Web Applications
-              </p>
-              <p>
-                Minimaal is a minimal and flexible Node.js web application
-                framework that provides a robust set of features for web and
-                mobile applications.
-              </p>
-            </div>
-            <div>
-              <p
-                style={{
-                  fontSize: "1.2rem",
-                  color: "#9100E6",
-                  fontWeight: "600",
-                }}
-              >
-                Mongoose Support
-              </p>
-              <p>
-                Minimaal provides added capabilities for seamless integration
-                and use of Mongoose for MongoDB operations without writing extra
-                code.
-              </p>
-            </div>
-            <div>
-              <p
-                style={{
-                  fontSize: "1.2rem",
-                  color: "#9100E6",
-                  fontWeight: "600",
-                }}
-              >
-                APIs
-              </p>
-              <p>
-                With a myriad of HTTP utility methods and middleware at your
-                disposal, creating a robust API is quick and easy.
-              </p>
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "left",
-              gap: "3rem",
-              width: "70%",
-            }}
-          >
-            <div>
-              <p
-                style={{
-                  fontSize: "1.2rem",
-                  color: "#9100E6",
-                  fontWeight: "600",
-                }}
-              >
-                Performance
-              </p>
-              <p>
-                Minimaal provides a thin layer of fundamental web application
-                features, without obscuring Node.js features that you know and
-                love.
-              </p>
-            </div>
-            <div>
-              <p
-                style={{
-                  fontSize: "1.2rem",
-                  color: "#9100E6",
-                  fontWeight: "600",
-                }}
-              >
-                Middleware
-              </p>
-              <p>
-                Minimaal is a lightweight and flexible routing framework with
-                minimal core features meant to be augmented through the use of
-                Minimaal middleware modules.
-              </p>
-            </div>
-          </div>
-        </>
-      ) : (
-        <div
+      <div>
+        <p
           style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "3rem",
-            marginTop: "3rem",
+            fontSize: "1.2rem",
+            color: "#9100E6",
+            fontWeight: "600",
           }}
         >
-          <div>
-            <p
-              style={{
-                fontSize: "1.2rem",
-                color: "#9100E6",
-                fontWeight: "600",
-              }}
-            >
-              Web Applications
-            </p>
-            <p>
-              Minimaal is a minimal and flexible Node.js web application
-              framework that provides a robust set of features for web and
-              mobile applications.
-            </p>
-          </div>
-          <div>
-            <p
-              style={{
-                fontSize: "1.2rem",
-                color: "#9100E6",
-                fontWeight: "600",
-              }}
-            >
-              Mongoose Support
-            </p>
-            <p>
-              Minimaal provides added capabilities for seamless integration and
-              use of Mongoose for MongoDB operations without writing extra code.
-            </p>
-          </div>
-          <div>
-            <p
-              style={{
-                fontSize: "1.2rem",
-                color: "#9100E6",
-                fontWeight: "600",
-              }}
-            >
-              APIs
-            </p>
-            <p>
-              With a myriad of HTTP utility methods and middleware at your
-              disposal, creating a robust API is quick and easy.
-            </p>
-          </div>
-          <div>
-            <p
-              style={{
-                fontSize: "1.2rem",
-                color: "#9100E6",
-                fontWeight: "600",
-              }}
-            >
-              Performance
-            </p>
-            <p>
-              Minimaal provides a thin layer of fundamental web application
-              features, without obscuring Node.js features that you know and
-              love.
-            </p>
-          </div>
-          <div>
-            <p
-              style={{
-                fontSize: "1.2rem",
-                color: "#9100E6",
-                fontWeight: "600",
-              }}
-            >
-              Middleware
-            </p>
-            <p>
-              Minimaal is a lightweight and flexible routing framework with
-              minimal core features meant to be augmented through the use of
-              Minimaal middleware modules.
-            </p>
-          </div>
-        </div>
-      )}
-    </>
-  );
-};
+          Mongoose Support
+        </p>
+        <p>
+          Minimaal provides added capabilities for seamless integration and use
+          of Mongoose for MongoDB operations without writing extra code.
+        </p>
+      </div>
+      <div>
+        <p
+          style={{
+            fontSize: "1.2rem",
+            color: "#9100E6",
+            fontWeight: "600",
+          }}
+        >
+          APIs
+        </p>
+        <p>
+          With a myriad of HTTP utility methods and middleware at your disposal,
+          creating a robust API is quick and easy.
+        </p>
+      </div>
+      <div>
+        <p
+          style={{
+            fontSize: "1.2rem",
+            color: "#9100E6",
+            fontWeight: "600",
+          }}
+        >
+          Performance
+        </p>
+        <p>
+          Minimaal provides a thin layer of fundamental web application
+          features, without obscuring Node.js features that you know and love.
+        </p>
+      </div>
+      <div>
+        <p
+          style={{
+            fontSize: "1.2rem",
+            color: "#9100E6",
+            fontWeight: "600",
+          }}
+        >
+          Middleware
+        </p>
+        <p>
+          Minimaal is a lightweight and flexible routing framework with minimal
+          core features meant to be augmented through the use of Minimaal
+          middleware modules.
+        </p>
+      </div>
+    </div>
+  )}
+</>
+); };
 
 <Hero />
