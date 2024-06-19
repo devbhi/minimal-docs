@@ -21,23 +21,23 @@ entry point: (index.js)
 
 Enter app.js, or whatever you want the name of the main file to be. If you want it to be index.js, hit RETURN to accept the suggested default file name.
 
-Now, install Minimal in the myapp directory and save it in the dependencies list. For example:
+Now, install minimaal in the myapp directory and save it in the dependencies list. For example:
 
 ```bash {3} copy
-$ npm install minimal
+$ npm install minimaal
 ```
 
-To install Minimal temporarily and not add it to the dependencies list:
+To install minimaal temporarily and not add it to the dependencies list:
 
 ```bash {3} copy
-$ npm install minimal --no-save
+$ npm install minimaal --no-save
 ```
 
 # Hello World
 
 ```js filename="index.js" {2} copy
-const minimal = require("minimal");
-const app = minimal();
+const minimaal = require("minimaal");
+const app = minimaal();
 const port = 3000;
 
 app.get("/", (req, res) => {
@@ -55,14 +55,14 @@ The example above is actually a working server: Go ahead and click on the URL sh
 
 ## Running Locally
 
-First create a directory named myapp, change to it and run npm init. Then, install minimal as a dependency.
+First create a directory named myapp, change to it and run npm init. Then, install minimaal as a dependency.
 
 In the myapp directory, create a file named app.js and copy the code from the example above.
 
 ```
 The req (request) and res (response) are the exact
 same objects that Node provides, so you can invoke req.pipe(),
-req.on('data', callback), and anything else you would do without Minimal involved.
+req.on('data', callback), and anything else you would do without minimaal involved.
 ```
 
 Run the app with the following command:

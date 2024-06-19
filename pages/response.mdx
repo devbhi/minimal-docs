@@ -1,6 +1,6 @@
 # Response
 
-The res object represents the HTTP response that an Minimal app sends when it gets an HTTP request.
+The res object represents the HTTP response that an minimaal app sends when it gets an HTTP request.
 
 In this documentation and by convention, the object is always referred to as res (and the HTTP request is req) but its actual name is determined by the parameters to the callback function in which you’re working.
 
@@ -56,7 +56,7 @@ When the parameter is a String, the method sets the Content-Type to “text/html
 res.send("<p>some html</p>");
 ```
 
-When the parameter is an Array or Object, Minimal responds with the JSON representation:
+When the parameter is an Array or Object, minimaal responds with the JSON representation:
 
 ```js filename="app.js" copy
 res.send({ user: "tobi" });

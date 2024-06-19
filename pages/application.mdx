@@ -1,10 +1,10 @@
 # Application
 
-The app object conventionally denotes the Minimal application. Create it by calling the top-level minimal() function exported by the minimal module:
+The app object conventionally denotes the minimaal application. Create it by calling the top-level minimaal() function exported by the minimaal module:
 
 ```js filename="app.js" {2} copy
-const minimal = require("minimal");
-const app = minimal();
+const minimaal = require("minimaal");
+const app = minimaal();
 
 app.get("/", (req, res) => {
   res.send("hello world");
@@ -108,14 +108,14 @@ Binds and listens for connections on the specified host and port. This method is
 If port is omitted or is 0, the operating system will assign an arbitrary unused port, which is useful for cases like automated tasks (tests, etc.).
 
 ```js filename="app.js" copy
-const minimal = require("minimal");
-const app = minimal();
+const minimaal = require("minimaal");
+const app = minimaal();
 app.listen(3000);
 ```
 
 ```js filename="app.js" copy
-const minimal = require("minimal");
-const app = minimal();
+const minimaal = require("minimaal");
+const app = minimaal();
 app.listen(3000, () => console.log("server is running on port 3000"));
 ```
 
