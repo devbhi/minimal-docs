@@ -2,7 +2,7 @@ import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
 
 const config: DocsThemeConfig = {
-  logo: <span style={{ fontSize: "2rem" }}>minimaal</span>,
+  logo: <span style={{ fontSize: "2rem" }}>Minimaal</span>,
   project: {
     link: "https://github.com/devbhi/minimaal",
   },
