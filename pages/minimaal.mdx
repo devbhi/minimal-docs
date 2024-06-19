@@ -1,6 +1,6 @@
 # minimaal()
 
-Creates an minimaal application. The minimaal() function is a top-level function exported by the minimaal module.
+Creates an Minimaal application. The minimaal() function is a top-level function exported by the minimal module.
 
 ```js filename="app.js" copy
 const minimaal = require("minimaal");
@@ -11,7 +11,7 @@ const app = minimaal();
 
 ### minimaal.json([options])
 
-This is a built-in middleware function in minimaal. It parses incoming requests with JSON payloads and is based on body-parser.
+This is a built-in middleware function in Minimaal. It parses incoming requests with JSON payloads and is based on body-parser.
 
 Returns middleware that only parses JSON and only looks at requests where the Content-Type header matches the type option. This parser accepts any Unicode encoding of the body and supports automatic inflation of gzip and deflate encodings.
 
@@ -30,7 +30,7 @@ The following table describes the properties of the optional options object.
 
 ### minimaal.urlencoded([options])
 
-This is a built-in middleware function in minimaal. It parses incoming requests with urlencoded payloads and is based on body-parser.
+This is a built-in middleware function in Minimaal. It parses incoming requests with urlencoded payloads and is based on body-parser.
 
 Returns middleware that only parses urlencoded bodies and only looks at requests where the Content-Type header matches the type option. This parser accepts only UTF-8 encoding of the body and supports automatic inflation of gzip and deflate encodings.
 
